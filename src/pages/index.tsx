@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { selectDataList } from '../redux/slices/tokenSlice';
 import { Text } from '../ui/components/Text';
 import DefaultLayout from '../ui/layouts/DefaultLayout';
-
+import Link from 'next/link';
 export default function Landing() {
   const { data } = useSelector(selectDataList);
 
@@ -26,7 +26,7 @@ export default function Landing() {
           })}
         </ol>
       </div>
-      <a href="/token">Token page</a>
+      <Link href="/token">Token page</Link>
     </Container>
   );
 }

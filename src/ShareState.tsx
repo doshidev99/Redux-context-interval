@@ -1,10 +1,22 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useGetBalance } from './hooks/useGetBalance';
+import { fetchDataUserList, selectDataList } from './redux/slices/tokenSlice';
 
 export const ShareState = (props: { children: React.ReactNode }) => {
   const [cRef, setCRef] = useState(true);
   const { getBalance } = useGetBalance();
+
+  const dispatch = useDispatch();
+
+  const { data } = useSelector(selectDataList);
   useEffect(() => {
+    dispatch(fetchDataUserList());
+  }, []);
+
+  useEffect(() => {
+    if (data.length <= 0) return;
+
     let intervalId: NodeJS.Timer;
     if (cRef) {
       getBalance();
@@ -16,7 +28,7 @@ export const ShareState = (props: { children: React.ReactNode }) => {
     }
 
     return () => clearInterval(intervalId);
-  }, [cRef]);
+  }, [cRef, data]);
 
   return <div>{props.children}</div>;
 };
