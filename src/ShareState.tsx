@@ -1,3 +1,4 @@
+import { unwrapResult } from '@reduxjs/toolkit';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useGetBalance } from './hooks/useGetBalance';
@@ -11,7 +12,12 @@ export const ShareState = (props: { children: React.ReactNode }) => {
 
   const { data } = useSelector(selectDataList);
   useEffect(() => {
-    dispatch(fetchDataUserList());
+    dispatch(fetchDataUserList())
+      // @ts-ignore
+      .then(unwrapResult)
+      .then((data) => {
+        console.log({ data });
+      });
   }, []);
 
   useEffect(() => {
@@ -22,6 +28,7 @@ export const ShareState = (props: { children: React.ReactNode }) => {
       getBalance();
       setCRef(false);
     } else {
+      // @ts-ignore
       intervalId = setInterval(() => {
         getBalance();
       }, 10000);

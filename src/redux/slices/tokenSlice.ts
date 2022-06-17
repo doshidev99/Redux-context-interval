@@ -4,10 +4,10 @@ import { response } from './mockData';
 export function fetchRequest() {
   return new Promise((resolve, reject) =>
     // successfully
-    // setTimeout(() => resolve({ data: response }), 0)
+    setTimeout(() => resolve({ data: response }), 0)
 
     // failed
-    setTimeout(() => reject({ data: 'Something error' }), 0)
+    // setTimeout(() => reject({ data: 'Something error' }), 0)
   );
 }
 const initialState = {

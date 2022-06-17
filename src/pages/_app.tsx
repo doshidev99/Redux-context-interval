@@ -6,6 +6,7 @@ import { NextComponentType, NextPageContext } from 'next';
 import { Provider } from 'react-redux';
 import store from '../redux/store';
 import { ShareState } from '../shareState';
+import { GoogleLogin } from '../GoogleLogin';
 
 interface MyAppProps extends AppProps {
   Component: {
@@ -24,7 +25,9 @@ export default function App({ Component, pageProps }: MyAppProps) {
         <GlobalStyles />
         <Layout>
           <ShareState>
-            <Component {...pageProps} />
+            <GoogleLogin>
+              <Component {...pageProps} />
+            </GoogleLogin>
           </ShareState>
         </Layout>
       </ThemeProvider>
