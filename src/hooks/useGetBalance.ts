@@ -20,7 +20,7 @@ export const useGetBalance = () => {
     Promise.all(
       [1].map(async () => {
         await fetchCount(2);
-        const newData = _data.map((item) => {
+        const newData = _data.map((item: any) => {
           return {
             ...item,
             usd: Math.random().toFixed(2),

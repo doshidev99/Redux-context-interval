@@ -1,11 +1,9 @@
-import React from 'react';
+import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { selectDataList } from '../redux/slices/tokenSlice';
 import { Text } from '../ui/components/Text';
 import DefaultLayout from '../ui/layouts/DefaultLayout';
-import Link from 'next/link';
-import crypto from 'crypto';
 export default function Landing() {
   const { data } = useSelector(selectDataList);
 

@@ -3,12 +3,8 @@ import styled from 'styled-components';
 import { Text } from '../components/Text';
 import Footer from './parts/Footer';
 
-export default function DefaultLayout(props) {
-  return (
-    <Container>
-      {props.children}
-    </Container>
-  );
+export default function DefaultLayout(props: { children: React.ReactNode }) {
+  return <Container>{props.children}</Container>;
 }
 
 const Container = styled.div`

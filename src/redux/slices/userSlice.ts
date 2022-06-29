@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createSlice, Draft, PayloadAction } from '@reduxjs/toolkit';
 
 const initialState = {

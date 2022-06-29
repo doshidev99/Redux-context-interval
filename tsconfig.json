@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
     "target": "es6",
+    "outDir": "dist",
     "lib": [
       "dom",
       "dom.iterable",
@@ -18,14 +18,24 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
-    // "paths": {
-    //   "@state": ["state/*"],
-    //   "@styles": ["styles/*"],
-    //   "@utillity": ["utillity/*"],
-    //   "@hooks": ["hooks/*"],
-    //   "@components": ["components/*"]
-    // }
+    "baseUrl": "src",
+    "paths": {
+      // "@state": [
+      //   "state/*"
+      // ],
+      // "@styles": [
+      //   "styles/*"
+      // ],
+      // "@utillity": [
+      //   "utillity/*"
+      // ],
+      // "@hooks": [
+      //   "hooks/*"
+      // ],
+      // "@components": [
+      //   "components/*"
+      // ]
+    }
   },
   "include": [
     "next-env.d.ts",

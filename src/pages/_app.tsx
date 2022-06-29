@@ -5,9 +5,8 @@ import { themes } from '../ui/themes';
 import { NextComponentType, NextPageContext } from 'next';
 import { Provider } from 'react-redux';
 import store from '../redux/store';
-import { ShareState } from '../shareState';
+// import { ShareState } from '../shareState';
 import { GoogleLogin } from '../GoogleLogin';
-import { UserProvider } from '@auth0/nextjs-auth0';
 
 interface MyAppProps extends AppProps {
   Component: {
@@ -25,13 +24,11 @@ export default function App({ Component, pageProps }: MyAppProps) {
       <ThemeProvider theme={themes.light}>
         <GlobalStyles />
         <Layout>
-          <ShareState>
+          {/* <ShareState> */}
             <GoogleLogin>
-              <UserProvider>
-                <Component {...pageProps} />
-              </UserProvider>
+              <Component {...pageProps} />
             </GoogleLogin>
-          </ShareState>
+          {/* </ShareState> */}
         </Layout>
       </ThemeProvider>
     </Provider>
