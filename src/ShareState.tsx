@@ -15,7 +15,7 @@ export const ShareState = (props: { children: React.ReactNode }) => {
     dispatch(fetchDataUserList())
       // @ts-ignore
       .then(unwrapResult)
-      .then((data) => {
+      .then((data: any) => {
         console.log({ data });
       });
   }, []);

@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import store from '../redux/store';
 import { ShareState } from '../shareState';
 import { GoogleLogin } from '../GoogleLogin';
+import { UserProvider } from '@auth0/nextjs-auth0';
 
 interface MyAppProps extends AppProps {
   Component: {
@@ -26,7 +27,9 @@ export default function App({ Component, pageProps }: MyAppProps) {
         <Layout>
           <ShareState>
             <GoogleLogin>
-              <Component {...pageProps} />
+              <UserProvider>
+                <Component {...pageProps} />
+              </UserProvider>
             </GoogleLogin>
           </ShareState>
         </Layout>

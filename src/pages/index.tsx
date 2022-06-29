@@ -5,6 +5,7 @@ import { selectDataList } from '../redux/slices/tokenSlice';
 import { Text } from '../ui/components/Text';
 import DefaultLayout from '../ui/layouts/DefaultLayout';
 import Link from 'next/link';
+import crypto from 'crypto';
 export default function Landing() {
   const { data } = useSelector(selectDataList);
 
@@ -13,7 +14,7 @@ export default function Landing() {
       <h1>Home page</h1>
       <div>
         <ol>
-          {data.map((token) => {
+          {data.map((token: any) => {
             if (!token) return null;
             return (
               <li key={token.token + token.chain}>
@@ -27,6 +28,7 @@ export default function Landing() {
         </ol>
       </div>
       <Link href="/token">Token page</Link>
+      <Link href="/api/auth/login">Login</Link>
     </Container>
   );
 }
